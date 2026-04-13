@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../App.css";
 
 export default function TodoList() {
   const [task, setTask] = useState("");
@@ -16,13 +17,12 @@ export default function TodoList() {
 
   function addTask() {
     if (task.trim() === "") return;
-
-    setList((prev) => [...prev, task]);
+    setList([...list, task]);
     setTask("");
   }
 
   function deleteTask(index) {
-    setList((prev) => prev.filter((_, i) => i !== index));
+    setList(list.filter((_, i) => i !== index));
   }
 
   function startEdit(index) {
@@ -31,43 +31,64 @@ export default function TodoList() {
   }
 
   function saveEdit(index) {
-    setList((prev) => {
-      const newList = [...prev];
-      newList[index] = editText;
-      return newList;
-    });
-
+    const newList = [...list];
+    newList[index] = editText;
+    setList(newList);
     setEditIndex(null);
     setEditText("");
   }
 
   return (
-    <div>
-      <h2>To-Do List</h2>
+    <div className="todo-container">
+      <h2 className="todo-title">To-Do List</h2>
 
-      <input
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-        placeholder="Digite uma tarefa"
-      />
-      <button onClick={addTask}>Adicionar</button>
+      <div className="todo-input-area">
+        <input
+          className="todo-input"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          placeholder="Digite uma tarefa..."
+        />
+        <button className="todo-add" onClick={addTask}>
+          Adicionar
+        </button>
+      </div>
 
-      <ul>
+      <ul className="todo-list">
         {list.map((item, index) => (
-          <li key={index}>
+          <li key={index} className="todo-item">
             {editIndex === index ? (
               <>
                 <input
+                  className="todo-edit-input"
                   value={editText}
                   onChange={(e) => setEditText(e.target.value)}
                 />
-                <button onClick={() => saveEdit(index)}>Salvar</button>
+                <button
+                  className="todo-save"
+                  onClick={() => saveEdit(index)}
+                >
+                  Salvar
+                </button>
               </>
             ) : (
               <>
-                {item}
-                <button onClick={() => startEdit(index)}>Editar</button>
-                <button onClick={() => deleteTask(index)}>Excluir</button>
+                <span className="todo-text">{item}</span>
+
+                <div className="todo-actions">
+                  <button
+                    className="todo-edit"
+                    onClick={() => startEdit(index)}
+                  >
+                    Editar
+                  </button>
+                  <button
+                    className="todo-delete"
+                    onClick={() => deleteTask(index)}
+                  >
+                    Excluir
+                  </button>
+                </div>
               </>
             )}
           </li>
