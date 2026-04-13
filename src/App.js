@@ -27,10 +27,12 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app-wrapper">
       <Header setPage={setPage} />
-      <hr />
-      {renderPage()}
+
+      <main className="app-content">
+        {renderPage()}
+      </main>
     </div>
   );
 }
