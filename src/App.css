@@ -13,3 +13,55 @@ button {
   margin: 5px;
   padding: 10px;
 }
+
+/* ===== COUNTER ===== */
+
+.counter-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.counter-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.counter-box {
+  font-size: 48px;
+  font-weight: bold;
+  background: #282c34;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  min-width: 120px;
+}
+
+.counter-number {
+  transition: 0.2s;
+}
+
+.counter-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.counter-btn {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #61dafb;
+}
+
+.counter-reset {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #ff6b6b;
+  color: white;
+}
