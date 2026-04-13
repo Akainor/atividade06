@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 export default function TodoList() {
   const [task, setTask] = useState("");
   const [list, setList] = useState(() => {
-    // 🔥 carrega direto no useState (melhor forma)
     const saved = localStorage.getItem("tasks");
     return saved ? JSON.parse(saved) : [];
   });
@@ -11,7 +10,6 @@ export default function TodoList() {
   const [editIndex, setEditIndex] = useState(null);
   const [editText, setEditText] = useState("");
 
-  // 🔹 salva sempre que mudar
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(list));
   }, [list]);

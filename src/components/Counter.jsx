@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../App.css";
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(() => {
+    const saved = localStorage.getItem("counter");
+    return saved ? JSON.parse(saved) : 0;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("counter", JSON.stringify(count));
+  }, [count]);
 
   return (
     <div className="counter-container">
