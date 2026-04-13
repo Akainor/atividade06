@@ -206,3 +206,63 @@ button {
   cursor: pointer;
   font-size: 16px;
 }
+
+/* ===== CALCULATOR ===== */
+
+.calc-container {
+  width: 260px;
+  margin: 40px auto;
+  background: #1e1e2f;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.calc-display {
+  background: #000;
+  color: #fff;
+  font-size: 32px;
+  text-align: right;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow-x: auto;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  height: 50px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  background: #2a2a40;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #3c3c5a;
+}
+
+.orange {
+  background: #ff9500;
+  color: white;
+}
+
+.gray {
+  background: #a5a5a5;
+  color: black;
+}
+
+.zero {
+  grid-column: span 2;
+  border-radius: 25px;
+  text-align: left;
+  padding-left: 20px;
+}
